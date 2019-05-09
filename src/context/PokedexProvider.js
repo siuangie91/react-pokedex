@@ -27,13 +27,13 @@ class PokedexProvider extends Component {
   2b. Create a method that will allow us to add a Pokemon to the `seen` list and,
   therefore, remove it from the unseen list.
   */
-  addToSeen = mon => {
+  addToSeen = (mon, callback = () => {}) => {
     const seenMonId = mon.id;
     const { seen, unseen } = this.state;
     this.setState({
       seen: [...seen, mon], // add to seen
       unseen: unseen.filter(mon => mon.id !== seenMonId) // filter out the one that is now seen
-    });
+    }, callback);
   }
 
   /*
