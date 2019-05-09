@@ -14,4 +14,4 @@ Each branch represents a step in the process.
 - **[4-decorators](https://github.com/siuangie91/react-pokedex/tree/4-decorators)** -- refactor code to use decorators
 
 ## Walkthroughs
-Walkthroughs of each step will be in that branch's readme.
+Walkthroughs of each step will be in that branch's readme. Each step will have a corresponding comment in file(s) mentioned in that step.
