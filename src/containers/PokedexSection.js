@@ -1,7 +1,6 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import SeenItem from '../components/SeenItem';
-import PokedexContext from '../context/PokedexContext';
 import withPokedexContext from '../context/PokedexConsumer';
 
 /*

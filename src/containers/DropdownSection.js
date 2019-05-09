@@ -1,36 +1,38 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
-import PokedexContext from '../context/PokedexContext';
 import withPokedexContext from '../context/PokedexConsumer';
 
 class DropdownSection extends React.Component {
-  static contextType = PokedexContext;
-
-  constructor() {
-    super();
+  /*
+  2a. `static contextType = PokedexContext` no longer needed as it's now available from props
+  */
+  constructor(props) {
+    super(props);
 
     this.state = {
-      dropdownValue: {} // "fake" init; overwritten by componentDidMount as cannot access this.context.pokedexContext from constructor
+      /*
+      2b. Now that we don't have to wait to be able to access context because it's available from props,
+      we can just initialize dropdownValue with the props value.
+      We also consequently no longer need componentDidMount.   
+      */
+      dropdownValue: this.props.pokedexContext.unseen[0]
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      dropdownValue: this.context.unseen[0]
-    });
-  }
-
+  /*
+  2c. Everything that used `this.context` before can now use `this.props.pokedexContext` instead.
+  */
   dropdownChangeHandler = e => {
     this.setState({
-      dropdownValue: this.context.unseen.find(mon => mon.id === +e.target.value) // coerce as num
+      dropdownValue: this.props.pokedexContext.unseen.find(mon => mon.id === +e.target.value) // coerce as num
     });
   }
 
   btnClickHandler = () => {
     const monToAdd = this.state.dropdownValue;
-    this.context.addToSeen(monToAdd, () => {
+    this.props.pokedexContext.addToSeen(monToAdd, () => {
       this.setState({
-        dropdownValue: this.context.unseen[0]
+        dropdownValue: this.props.pokedexContext.unseen[0]
       });
     });
   }
@@ -38,7 +40,7 @@ class DropdownSection extends React.Component {
   render() {
     const { dropdownValue } = this.state;
     /*
-    2a. `pokedexContext`, provided by the PokedexConsumer HOC, is now available via props.
+    2d. `pokedexContext`, provided by the PokedexConsumer HOC, is now available via props.
     */
     const { pokedexContext } = this.props;
 
@@ -46,10 +48,16 @@ class DropdownSection extends React.Component {
       <section className="section dropdown-section">
         <SectionHeader>What Pokémon did you see?</SectionHeader>
         <section className="form-container">
+          {/* 
+          2e. We no longer need to wrap this in a Consumer!
+          */}
           <select
             value={dropdownValue ? dropdownValue.id : ''} // if no more unseen, there won't be a dropdownValue
             onChange={e => this.dropdownChangeHandler(e)}>
             {
+              /*
+              2f. Map over the pokedexContext prop to render the options instead of using value.
+              */
               pokedexContext.unseen.map((mon, i) => (
                 <option key={i} value={mon.id}>{mon.id}. {mon.name}</option>
               ))
