@@ -15,3 +15,5 @@ Each branch represents a step in the process.
 
 ## Walkthrough of 1-create-context
 1. **Create the context.** Create a new folder: `src/context`. Then create a new file `PokedexContext.js` in that folder and use `React.createContext()` to generate the context, passing in the `pokemon` data as the default value.
+2. **Create the provider** that will provide your components with the context -- `PokedexProvider.js`. Wrap the components that need the context -- `DropdownSection` and `PokedexSection` -- in this provider in `App.js`.
+3. **Consume the context.**
