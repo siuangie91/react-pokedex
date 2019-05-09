@@ -32,6 +32,7 @@ header {
 }
 
 .section {
+  position: relative;
   min-height: 150px;
   margin-bottom: 10px;
   padding: 10px;
@@ -124,6 +125,23 @@ button {
 }
 .seen-list li a:hover img {
   transform: scale(1);
+}
+
+.no-more-unseen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  background: #ccc;
+}
+.no-more-unseen p {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  transform: translateY(-50%);
 }
 
 @media screen and (min-width: 500px) {

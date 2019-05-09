@@ -51,6 +51,8 @@ class DropdownSection extends React.Component {
   }
 
   render() {
+    const { dropdownValue } = this.state; 
+
     return (
       <section className="section dropdown-section">
         <SectionHeader>What Pokémon did you see?</SectionHeader>
@@ -67,7 +69,7 @@ class DropdownSection extends React.Component {
               */
               value => (
                 <select
-                  value={this.state.dropdownValue.id}
+                  value={dropdownValue ? dropdownValue.id : ''}
                   onChange={e => this.dropdownChangeHandler(e)}>
                   {
                     /*
@@ -89,6 +91,14 @@ class DropdownSection extends React.Component {
           onClick={this.btnClickHandler}>
           + Add to List
         </button>
+        
+        {
+          !dropdownValue && (
+            <div className="no-more-unseen">
+              <p>Wow! You've seen every Pokémon!</p>
+            </div>
+          )
+        }
       </section>
     );
   }  
