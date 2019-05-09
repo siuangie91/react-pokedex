@@ -1,4 +1,6 @@
-# React Pokédex
+<img src="https://i.dlpng.com/static/png/89133_thumb.png" alt="pokeball" height="50"/> &nbsp; <img src="https://people.rit.edu/jrm2516/330/gamedex/pokedex.png" alt="pokedex" height="50"/>  
+
+# React Pokédex 
 
 A simple prototype to demonstrate how to use Context and HOCs to manage state. 
 
