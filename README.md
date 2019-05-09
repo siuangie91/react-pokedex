@@ -11,5 +11,5 @@ Each branch represents a step in the process.
 - **[3-hocs](https://github.com/siuangie91/react-pokedex/tree/3-hocs)** -- refactor code to use HOCs
 - **[4-decorators](https://github.com/siuangie91/react-pokedex/tree/4-decorators)** -- refactor code to use decorators
 
-### Walkthroughs
+## Walkthroughs
 Walkthroughs of each step will be in that branch's readme.
