@@ -17,7 +17,7 @@ class DropdownSection extends React.Component {
           </select>
           <span className="caret"></span>
         </section>
-        <button>+ Add as Seen</button>
+        <button>+ Add to List</button>
       </section>
     );
   }  
