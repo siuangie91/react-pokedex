@@ -2,25 +2,24 @@ import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import SeenItem from '../components/SeenItem';
 import PokedexContext from '../context/PokedexContext';
+import withPokedexContext from '../context/PokedexConsumer';
 
-const PokedexSection = () => (
+/*
+2. Same implementation as DropdownSection
+*/
+const PokedexSection = ({ pokedexContext }) => (
   <section className="section pokedex-section">
     <SectionHeader>Here's what you've seen so far:</SectionHeader>
-    <PokedexContext.Consumer
-      name="PokedexContextConsumer.PokedexSection">
+    
+    <ul className="seen-list">
       {
-        value => (
-          <ul className="seen-list">
-            {
-              value.seen.map((mon, i) => (
-                <SeenItem key={i} {...mon} />               
-              ))
-            }
-          </ul>
-        )
+        pokedexContext.seen.map((mon, i) => (
+          <SeenItem key={i} {...mon} />               
+        ))
       }
-    </PokedexContext.Consumer>
+    </ul>
+
   </section>
 );
 
-export default PokedexSection;
+export default withPokedexContext(PokedexSection);

@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import PokedexContext from '../context/PokedexContext';
+import withPokedexContext from '../context/PokedexConsumer';
 
 class DropdownSection extends React.Component {
   static contextType = PokedexContext;
@@ -35,30 +36,25 @@ class DropdownSection extends React.Component {
   }
 
   render() {
-    const { dropdownValue } = this.state; 
+    const { dropdownValue } = this.state;
+    /*
+    2a. `pokedexContext`, provided by the PokedexConsumer HOC, is now available via props.
+    */
+    const { pokedexContext } = this.props;
 
     return (
       <section className="section dropdown-section">
         <SectionHeader>What Pokémon did you see?</SectionHeader>
         <section className="form-container">
-          
-          <PokedexContext.Consumer
-            name="PokedexContextConsumer.DropdownSection">
+          <select
+            value={dropdownValue ? dropdownValue.id : ''} // if no more unseen, there won't be a dropdownValue
+            onChange={e => this.dropdownChangeHandler(e)}>
             {
-              value => (
-                <select
-                  value={dropdownValue ? dropdownValue.id : ''} // if no more unseen, there won't be a dropdownValue
-                  onChange={e => this.dropdownChangeHandler(e)}>
-                  {
-                    value.unseen.map((mon, i) => (
-                      <option key={i} value={mon.id}>{mon.id}. {mon.name}</option>
-                    ))
-                  } 
-                </select>
-              )
+              pokedexContext.unseen.map((mon, i) => (
+                <option key={i} value={mon.id}>{mon.id}. {mon.name}</option>
+              ))
             }
-          </PokedexContext.Consumer>
-        
+          </select>
           <span className="caret"></span>
         </section>
 
@@ -79,4 +75,4 @@ class DropdownSection extends React.Component {
   }  
 }
 
-export default DropdownSection;
+export default withPokedexContext(DropdownSection);

@@ -14,3 +14,5 @@ Each branch represents a step in the process.
 - **[4-decorators](https://github.com/siuangie91/react-pokedex/tree/4-decorators)** -- refactor code to use decorators
 
 ## Walkthrough of 3-hocs
+1. **Create the Consumer HOC** in `src/context` as `PokedexConsumer.js`. This HOC will take a `WrappedComponent` that it will then wrap inside the Context Consumer.
+2. **Use the HOC** for the components -- `DropdownSection` and `PokedexSection` -- that need to consume the Context.
