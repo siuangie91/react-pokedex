@@ -10,9 +10,7 @@ Each branch represents a step in the process.
 - **[master](https://github.com/siuangie91/react-pokedex/tree/master)** -- Basic setup. No working functionality.
 - **[1-create-context](https://github.com/siuangie91/react-pokedex/tree/1-create-context)** -- create the Context and Provider
 - **[2-use-provider](https://github.com/siuangie91/react-pokedex/tree/2-use-provider)** -- using the Context Provider without HOCs
-- ![current](https://img.shields.io/badge/current-blue.svg) **3-hocs** -- refactor code to use HOCs
-- **[4-decorators](https://github.com/siuangie91/react-pokedex/tree/4-decorators)** -- refactor code to use decorators
+- **[3-hocs](https://github.com/siuangie91/react-pokedex/tree/3-hocs)** -- refactor code to use HOCs
+- ![current](https://img.shields.io/badge/current-blue.svg) **4-decorators** -- refactor code to use decorators
 
-## Walkthrough of 3-hocs
-1. **Create the Consumer HOC** in `src/context` as `PokedexConsumer.js`. This HOC will take a `WrappedComponent` that it will then wrap inside the Context Consumer.
-2. **Use the HOC** for the components -- `DropdownSection` and `PokedexSection` -- that need to consume the Context. We now no longer need to use `static contextType` and `this.context` and instead use `pokedexContext` from props.
+## Walkthrough of 4-decorators
