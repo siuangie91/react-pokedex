@@ -9,6 +9,16 @@ html, body {
   font-size: 14px;
 }
 
+html {
+  background: url(http://pngimg.com/uploads/pokeball/pokeball_PNG8.png)no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+body {
+  background: rgba(255,255,255,0.5);
+}
+
 .App {
   padding: 10px;
 }
@@ -37,6 +47,45 @@ header {
 .section-header {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.form-container {
+  position: relative;
+}
+
+select {
+  width: 100%;
+  margin-top: 4px;
+	border: 1px solid #ccc;
+	padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+}
+select + .caret {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 10px;
+  border-style: solid;
+  border-width: 10px 6px 0 6px;
+  border-color: #000000 transparent transparent transparent;
+  transform: translateY(calc(-50% + 2px));
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  background: #000;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .seen-list {
