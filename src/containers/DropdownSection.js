@@ -42,10 +42,12 @@ class DropdownSection extends React.Component {
   as the `mon` argument.  
   */
   btnClickHandler = () => {
-    this.context.addToSeen(this.state.dropdownValue);
-    this.setState({
-      dropdownValue: this.context.unseen[0]
-    })
+    const monToAdd = this.state.dropdownValue;
+    this.context.addToSeen(monToAdd, () => {
+      this.setState({
+        dropdownValue: this.context.unseen[0]
+      });
+    });
   }
 
   render() {

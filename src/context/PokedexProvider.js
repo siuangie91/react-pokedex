@@ -12,13 +12,13 @@ class PokedexProvider extends Component {
     }
   }
 
-  addToSeen = mon => {
+  addToSeen = (mon, callback = () => {}) => {
     const seenMonId = mon.id;
     const { seen, unseen } = this.state;
     this.setState({
       seen: [...seen, mon], // add to seen
       unseen: unseen.filter(mon => mon.id !== seenMonId) // filter out the one that is now seen
-    });
+    }, callback);
   }
 
   render() {
