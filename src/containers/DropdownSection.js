@@ -69,7 +69,7 @@ class DropdownSection extends React.Component {
               */
               value => (
                 <select
-                  value={dropdownValue ? dropdownValue.id : ''}
+                  value={dropdownValue ? dropdownValue.id : ''} // if no more unseen, there won't be a dropdownValue
                   onChange={e => this.dropdownChangeHandler(e)}>
                   {
                     /*
