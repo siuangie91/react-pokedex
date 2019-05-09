@@ -11,9 +11,6 @@ function App() {
       </header>
       
       <div className="section-container">
-        {/*
-        2d. Wrap the consumer components inside the provider.
-        */}
         <PokedexProvider>
           <DropdownSection />
           <PokedexSection />
