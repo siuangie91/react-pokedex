@@ -5,9 +5,10 @@ import withPokedexContext from '../context/PokedexConsumer';
 /*
 1a. Add the decorator using the @ syntax.
 According to the Python wiki, "a decorator is a callable that takes a function as an
-argument and returns a replacement function." This sounds very familar to a JS
+argument and returns a replacement function." This sounds very similar to a JS
 higher order function, and by extension, a React higher order component. Since our
 withPokedexContext HOC is essentially doing this exact thing, we can use it as a decorator.
+It will receive the component below it as the wrapped component.
 */
 @withPokedexContext
 class DropdownSection extends Component {
