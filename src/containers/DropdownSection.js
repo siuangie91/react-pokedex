@@ -38,7 +38,7 @@ class DropdownSection extends React.Component {
   /*
   1d. Handle click for the button. This is where we "talk" to the master state that's in the Provider.
   We call `addToSeen`, which is available via `this.context` by way of `static contextType`,
-  passing in the dropdown value, which is basically the selected pokemon, from this component's state,
+  passing in the dropdown value (the selected pokemon) from this component's state,
   as the `mon` argument.  
   */
   btnClickHandler = () => {
@@ -64,7 +64,7 @@ class DropdownSection extends React.Component {
             name="PokedexContextConsumer.DropdownSection">
             {
               /*
-              1f. Render the dropdown in a function with takes the provider's `value` prop as an argument.
+              1f. Render the dropdown in a function which takes the provider's `value` prop as an argument.
               This allows us to access `unseen`, `seen`, and `addToSeen`.
               */
               value => (
