@@ -3,7 +3,8 @@ import SectionHeader from '../components/SectionHeader';
 import withPokedexContext from '../context/PokedexConsumer';
 
 /*
-1a. Add the decorator using the @ syntax.
+1a. Add the decorator using the @ syntax, which is a simple way to call higher order functions.
+
 According to the Python wiki, "a decorator is a callable that takes a function as an
 argument and returns a replacement function." This sounds very similar to a JS
 higher order function, and by extension, a React higher order component. Since our
