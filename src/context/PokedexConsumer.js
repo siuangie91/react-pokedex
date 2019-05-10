@@ -7,7 +7,7 @@ const withPokedexContext = WrappedComponent => {
       return (
         <PokedexContext.Consumer>
           {
-            value => <WrappedComponent pokedexContext={value} {...this.props} />
+            value => <WrappedComponent pokedexContext={value} />
           }
         </PokedexContext.Consumer>     
       )
