@@ -41,8 +41,8 @@ The steps below have already been done so you can skip to the walkthrough, but I
 }
 ...
 ```
-
+4. You can now start your app again.
 
 ## Walkthrough of 4-decorators
-:warning: **You _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.** :warning:
+:warning: **When you check out this branch, you _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.** :warning:
 
