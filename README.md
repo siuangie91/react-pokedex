@@ -47,3 +47,8 @@ The steps below have already been done so you can skip to the walkthrough, but I
 :warning: When you check out this branch, you _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection. You must do the same when you switch back to the previous branches that did not use decorators.
 
 1. **Add the decorator to `DropdownSection` and `PokedexSection`.** This allows us to export the components without having to wrap it inside the HOC using `withPokedexContext()`.
+
+## Further reading
+
+- [Exploring EcmaScript Decorators](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841)
+- [Enhancing React Components with decorators](https://medium.com/@gigobyte/enhancing-react-components-with-decorators-441320e8606a)
