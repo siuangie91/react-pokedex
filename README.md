@@ -16,8 +16,33 @@ Each branch represents a step in the process.
 - **[3-hocs](https://github.com/siuangie91/react-pokedex/tree/3-hocs)** -- refactor code to use HOCs
 - ![current](https://img.shields.io/badge/current-blue.svg) **4-decorators** -- refactor code to use decorators
 
-## Walkthrough of 4-decorators
-*In order to use decorators, we need to add a Babel plugin. Since we set up this app with `create-react-app`, we must first run `npm eject`, which copies all the config files and dependencies into our project. Then we have to add this Babel plugin to our `package.json`. (These steps have already been done.)*
+## Note regarding decorators and `create-react-app`:
 
-**You _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.**
+In order to use decorators, we need to add a Babel plugin. Since we set up this app using `create-react-app`, which [doesn't support decorators](https://facebook.github.io/create-react-app/docs/can-i-use-decorators) at the time of writing, we have to `npm eject` before we can install the Babel plugin and add it to our `package.json`.
+
+The steps below have already been done so you can skip to the walkthrough, but I've documented them here for reference's sake.
+1. Run `npm eject`.
+2. Install the Babel `plugin-proposal-decorators` plugin as a dev dependency with `npm install --save-dev @babel/plugin-proposal-decorators`.
+3. Configure Babel in `package.json`:
+```javascript
+...
+"babel": {
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
+  ]
+}
+...
+```
+
+
+## Walkthrough of 4-decorators
+:warning: **You _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.** :warning:
 
