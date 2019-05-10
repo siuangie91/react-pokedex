@@ -19,5 +19,5 @@ Each branch represents a step in the process.
 ## Walkthrough of 4-decorators
 *In order to use decorators, we need to add a Babel plugin. Since we set up this app with `create-react-app`, we must first run `npm eject`, which copies all the config files and dependencies into our project. Then we have to add this Babel plugin to our `package.json`. (These steps have already been done.)*
 
-**You _must_ run `npm install` again and then `npm start` because the config has changed because of our ejection.**
+**You _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.**
 
