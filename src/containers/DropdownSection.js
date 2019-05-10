@@ -1,27 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SectionHeader from '../components/SectionHeader';
 import withPokedexContext from '../context/PokedexConsumer';
 
-class DropdownSection extends React.Component {
-  /*
-  2a. `static contextType = PokedexContext` no longer needed as it's now available from props
-  */
+/*
+1a. Add the decorator using the @ syntax.
+According to the Python wiki, "a decorator is a callable that takes a function as an
+argument and returns a replacement function." This sounds very familar to a JS
+higher order function, and by extension, a React higher order component. Since our
+withPokedexContext HOC is essentially doing this exact thing, we can use it as a decorator.
+*/
+@withPokedexContext
+class DropdownSection extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      /*
-      2b. Now that we don't have to wait to be able to access context because it's available from props,
-      we can just initialize dropdownValue with the props value.
-      We also consequently no longer need componentDidMount.   
-      */
       dropdownValue: this.props.pokedexContext.unseen[0]
     };
   }
 
-  /*
-  2c. Everything that used `this.context` before can now use `this.props.pokedexContext` instead.
-  */
   dropdownChangeHandler = e => {
     this.setState({
       dropdownValue: this.props.pokedexContext.unseen.find(mon => mon.id === +e.target.value) // coerce as num
@@ -39,25 +36,16 @@ class DropdownSection extends React.Component {
 
   render() {
     const { dropdownValue } = this.state;
-    /*
-    2d. `pokedexContext`, provided by the PokedexConsumer HOC, is now available via props.
-    */
     const { pokedexContext } = this.props;
 
     return (
       <section className="section dropdown-section">
         <SectionHeader>What Pokémon did you see?</SectionHeader>
         <section className="form-container">
-          {/* 
-          2e. We no longer need to wrap this in a Consumer!
-          */}
           <select
             value={dropdownValue ? dropdownValue.id : ''} // if no more unseen, there won't be a dropdownValue
             onChange={e => this.dropdownChangeHandler(e)}>
             {
-              /*
-              2f. Map over the pokedexContext prop to render the options instead of using value.
-              */
               pokedexContext.unseen.map((mon, i) => (
                 <option key={i} value={mon.id}>{mon.id}. {mon.name}</option>
               ))
@@ -83,4 +71,7 @@ class DropdownSection extends React.Component {
   }  
 }
 
-export default withPokedexContext(DropdownSection);
+/*
+1b. Export the component as normal.
+*/
+export default DropdownSection;

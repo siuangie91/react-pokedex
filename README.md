@@ -44,5 +44,5 @@ The steps below have already been done so you can skip to the walkthrough, but I
 4. You can now start your app again.
 
 ## Walkthrough of 4-decorators
-:warning: **When you check out this branch, you _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection.** :warning:
-
+:warning: When you check out this branch, you _must_ run `npm install` again and then `npm start` because the config has changed due to our ejection. :warning:
+1. **Add the decorator to `DropdownSection` and `PokedexSection`.** This allows us to export the components without having to wrap it inside the HOC using `withPokedexContext()`.

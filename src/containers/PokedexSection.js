@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SectionHeader from '../components/SectionHeader';
 import SeenItem from '../components/SeenItem';
 import withPokedexContext from '../context/PokedexConsumer';
 
 /*
-2. Same implementation as DropdownSection
+1. Same implementation as DropdownSection.
+However, we had to change our function component to a class component because
+leading decorators must be attached to a class decoration (this is the error
+the compiler gives us if we tried to use it with the function component).
 */
-const PokedexSection = ({ pokedexContext }) => (
-  <section className="section pokedex-section">
-    <SectionHeader>Here's what you've seen so far:</SectionHeader>
-    
-    <ul className="seen-list">
-      {
-        pokedexContext.seen.map((mon, i) => (
-          <SeenItem key={i} {...mon} />               
-        ))
-      }
-    </ul>
+@withPokedexContext
+class PokedexSection extends Component {
+  render() {
+    const { pokedexContext } = this.props;
 
-  </section>
-);
+    return (
+      <section className="section pokedex-section">
+        <SectionHeader>Here's what you've seen so far:</SectionHeader>
+        
+        <ul className="seen-list">
+          {
+            pokedexContext.seen.map((mon, i) => (
+              <SeenItem key={i} {...mon} />               
+            ))
+          }
+        </ul>
 
-export default withPokedexContext(PokedexSection);
+      </section>
+    )
+  }
+}
+
+export default PokedexSection;
