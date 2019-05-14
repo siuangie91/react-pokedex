@@ -21,6 +21,8 @@ Each branch represents a step in the process.
 ## What problem are we solving?
 We're not exactly solving a problem here because there really isn't any problem. However, we do have to use `withPokedexContext()` every time we want a component to access the Context. Decorators allow us to forgo that and use a `@withPokedexContext` syntax instead. 
 
+According to the Python docs, a decorator is a function that takes function and returns a replacement function, which is what a JS higher order function is, and by extension, what a React HOC is. This means that our `PokedexConsumer` HOC can be called with a decorator!
+
 ## Note regarding decorators and `create-react-app`:
 
 In order to use decorators, we need to add a Babel plugin. Since we set up this app using `create-react-app`, which [doesn't support decorators](https://facebook.github.io/create-react-app/docs/can-i-use-decorators) at the time of writing, we have to `npm eject` before we can install the Babel plugin and add it to our `package.json`.
