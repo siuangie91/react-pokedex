@@ -18,6 +18,15 @@ Each branch represents a step in the process.
 - ![current](https://img.shields.io/badge/current-blue.svg) **3-hocs** -- refactor code to use HOCs
 - **[4-decorators](https://github.com/siuangie91/react-pokedex/tree/4-decorators)** -- refactor code to use decorators
 
+## What problem are we solving?
+So on `2-use-provider` we noticed there was a bit of code repitition due to how `DropdownSection` and `PokedexSection` both have to pull the `value` prop. We can clean up quite a bit using a higher order component, or HOC. 
+
+An HOC takes a component, wraps it inside a container, and then returns that container with the wrapped component inside it. 
+
+We can abstract the code repitition into a `PokedexConsumer` HOC. Now all we have to do is wrap `DropdownSection` and `PokedexSection` inside the HOC! It can now access the Context's state using `this.props` because it's been passed down via the HOC.
+
+This is essentially how Context can be done using HOCs. [However, we can use a little syntactic sugar to make things even prettier.](https://github.com/siuangie91/react-pokedex/tree/4-decorators)
+
 ## Walkthrough of 3-hocs
 1. **Create the Consumer HOC** in `src/context` as `PokedexConsumer.js`. This HOC will take a `WrappedComponent` that it will then wrap inside the Context Consumer.
 2. **Use the HOC** for the components -- `DropdownSection` and `PokedexSection` -- that need to consume the Context. We now no longer need to use `static contextType` and `this.context` and instead use `pokedexContext` from props.
