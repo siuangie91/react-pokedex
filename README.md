@@ -18,6 +18,9 @@ Each branch represents a step in the process.
 - **[3-hocs](https://github.com/siuangie91/react-pokedex/tree/3-hocs)** -- refactor code to use HOCs
 - ![current](https://img.shields.io/badge/current-blue.svg) **4-decorators** -- refactor code to use decorators
 
+## What problem are we solving?
+We're not exactly solving a problem here because there really isn't any problem. However, we do have to use `withPokedexContext()` every time we want a component to access the Context. Decorators allow us to forgo that and use a `@withPokedexContext` syntax instead. 
+
 ## Note regarding decorators and `create-react-app`:
 
 In order to use decorators, we need to add a Babel plugin. Since we set up this app using `create-react-app`, which [doesn't support decorators](https://facebook.github.io/create-react-app/docs/can-i-use-decorators) at the time of writing, we have to `npm eject` before we can install the Babel plugin and add it to our `package.json`.
