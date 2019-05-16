@@ -8,7 +8,8 @@ class PokedexProvider extends Component {
 
     this.state = {
       seen: [],
-      unseen: [...pokemon]
+      unseen: [...pokemon],
+      addToSeen: this.addToSeen
     }
   }
 
@@ -25,11 +26,7 @@ class PokedexProvider extends Component {
     return (
       <PokedexContext.Provider
         name="PokedexContextProvider"
-        value={{
-          seen: this.state.seen,
-          unseen: this.state.unseen,
-          addToSeen: this.addToSeen
-        }}>
+        value={this.state}>
         {this.props.children}
       </PokedexContext.Provider>    
     );
