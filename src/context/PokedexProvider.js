@@ -19,7 +19,8 @@ class PokedexProvider extends Component {
     */
     this.state = {
       seen: [],
-      unseen: [...pokemon]
+      unseen: [...pokemon],
+      addToSeen: this.addToSeen
     }
   }
 
@@ -38,18 +39,14 @@ class PokedexProvider extends Component {
 
   /*
   2c. Render this provider component as a Context Provider,
-  passing in `seen` and `unseen` from the state and `addToSeen` to a `value` prop.
+  passing in the state, which has everything we need to access, to the `value` prop.
   This allows the consumers to access those properties via the `value` prop.
   */
   render() {
     return (
       <PokedexContext.Provider
         name="PokedexContextProvider"
-        value={{
-          seen: this.state.seen,
-          unseen: this.state.unseen,
-          addToSeen: this.addToSeen
-        }}>
+        value={this.state}>
         {this.props.children}
       </PokedexContext.Provider>    
     );
