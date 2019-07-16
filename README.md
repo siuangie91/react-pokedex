@@ -4,6 +4,8 @@ A simple prototype to demonstrate how to use Context and HOCs to manage state.
 ## What it does
 Add a Pokémon to your Pokédex, which tracks what Pokémon you've seen on your journey, by selecting a Pokémon from the dropdown on the left and clicking Add. After a Pokémon from the dropdown is added the Pokédex, it is removed from the dropdown.
 
+**Demo**: [https://react-pokedex-context.herokuapp.com/](https://react-pokedex-context.herokuapp.com/)
+
 ## Setup
 `npm install` and then `npm start`.
 
