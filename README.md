@@ -1,5 +1,7 @@
 # React Pokédex
 
+> ### **:bangbang: This project is archived and no longer maintained.**
+
 A simple prototype to demonstrate how to use Context and HOCs to manage state.
 
 ## What it does
